@@ -30,6 +30,7 @@ body > * {
   background: rgba(255, 255, 255, 0.95);
   padding: 10px 20px;
   position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .logo-navbar {
@@ -150,6 +151,10 @@ body > * {
   overflow: hidden;
 
   transition: transform 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
@@ -167,6 +172,11 @@ body > * {
   background-color: #f0f0f0;
 }
 
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 /* ===================== */
 /* TEXTOS Y BOTONES */
@@ -184,15 +194,15 @@ body > * {
   background-color: #25D366;
   color: white;
 
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
 
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 24px;
+  font-size: 22px;
   text-decoration: none;
 
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -214,10 +224,10 @@ body > * {
   border: none;
   border-radius: 50%;
 
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
 
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -233,12 +243,59 @@ body > * {
 }
 
 .btn-agregar {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
+  position: relative;
+  margin-top: auto;
   padding: 10px;
+  border-radius: 8px;
+  border: none;
+
+  background: #f5f5f5;
+  color: #333;
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 5px;
+  overflow: hidden;
+
+  transition: 0.3s;
+}
+
+.btn-agregar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+
+  width: 150%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(126, 217, 87, 0.3),
+    rgba(0, 191, 255, 0.3),
+    rgba(138, 43, 226, 0.3),
+    transparent
+  );
+
+  animation: brilloInfinito 3s linear infinite;
+}
+
+.btn-agregar:hover::before {
+  animation: luz 7s linear infinite;
+}
+
+
+.btn-agregar:hover {
+  background: linear-gradient(
+    45deg,
+    #7ed957,
+    #00bfff,
+    #8a2be2,
+    #7ed957
+  );
+  background-size: 200% 100%;
+  animation: fondoMovimiento 4s linear infinite;
+
+  color: white;
 }
 
 
@@ -247,9 +304,9 @@ body > * {
 /* ===================== */
 
 @keyframes subirBajar {
-  0% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, -5px); }
-  100% { transform: translate(-50%, 0); }
+    0% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -5px); }
+    100% { transform: translate(-50%, 0); }
 }
 
 @keyframes aparecerZoom {
@@ -258,7 +315,25 @@ body > * {
     transform: scale(1.1);
   }
   to {
-    opacity: 1;
-    transform: scale(1);
+      opacity: 1;
+      transform: scale(1);
+    }
+}
+
+@keyframes luz {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes brilloInfinito {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
   }
 }
