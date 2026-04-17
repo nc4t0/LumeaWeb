@@ -15,7 +15,62 @@ let productos = [{
     precio: "3000",
     descripcion: "Lavandina concentrada para limpieza",
     imagen: "./img/Lavandina.jpg"
+},
+{
+    nombre: "Lavandina  sen gel x 1 Lt",
+    precio: "1500",
+    descripcion: "El mejor gel para limpiar superficies",
+    imagen: "./img/Lavandina (1).jpg"
+},
+{
+    nombre: "Desodorante s de piso x 5 Lts",
+    precio: "2500",
+    descripcion: "consultar fragancias disponibles",
+    imagen: "./img/Desodorante.jpg"
+},
+{
+    nombre: "Lavandina s x 5 Lts",
+    precio: "3000",
+    descripcion: "Lavandina concentrada para limpieza",
+    imagen: "./img/Lavandina.jpg"
+},
+{
+    nombre: "Lavandina en gel x 1 Lt",
+    precio: "1500",
+    descripcion: "El mejor gel para limpiar superficies",
+    imagen: "./img/Lavandina (1).jpg"
+},
+{
+    nombre: "Desodorante de piso x 5 Lts",
+    precio: "2500",
+    descripcion: "consultar fragancias disponibles",
+    imagen: "./img/Desodorante.jpg"
+},
+{
+    nombre: "Lavandina x 5 Lts",
+    precio: "3000",
+    descripcion: "Lavandina concentrada para limpieza",
+    imagen: "./img/Lavandina.jpg"
+},
+{
+    nombre: "Lavandina  sen gel x 1 Lt",
+    precio: "1500",
+    descripcion: "El mejor gel para limpiar superficies",
+    imagen: "./img/Lavandina (1).jpg"
+},
+{
+    nombre: "Desodorante s de piso x 5 Lts",
+    precio: "2500",
+    descripcion: "consultar fragancias disponibles",
+    imagen: "./img/Desodorante.jpg"
+},
+{
+    nombre: "Lavandina s x 5 Lts",
+    precio: "3000",
+    descripcion: "Lavandina concentrada para limpieza",
+    imagen: "./img/Lavandina.jpg"
 }
+
 ]
 
 let contenedor = document.getElementById("productos")
