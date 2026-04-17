@@ -1,9 +1,3 @@
-#productos {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
 .card {
     background-color: white;
     border: 1px solid #ddd;
@@ -27,4 +21,138 @@
   height: 200px;
   object-fit: contain; /* no recorta */
   background-color: #fff; /* opcional */
+}
+
+#productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.precio {
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+}
+
+.btn-agregar {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+
+  background-color: #f5f5f5; /* gris suave, más profesional */
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* marca de agua */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: url("./img/logo.png") center no-repeat;
+  background-size: 400px;
+
+  opacity: 0.03; /* MUY leve */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.banner img {
+  width: 100%;
+  height: 80vh; /* 80% de la pantalla */
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  animation: aparecerZoom 1s ease forwards;
+}
+
+
+.logo {
+  width: 60px;
+  height: auto;
+}
+
+.banner h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+header:not(.banner) {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  text-align: center;
+}
+
+header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.banner {
+  position: relative; /* clave */
+  overflow: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.btn-scroll {
+  position: absolute;
+  bottom: 90px; /* lo baja dentro del banner */
+  left: 10%;
+  transform: translateX(-50%);
+  animation: subirBajar 2s infinite;
+
+  padding: 12px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+
+  z-index: 2;
+  transition: 0.3s;
+}
+
+.btn-scroll:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+@keyframes subirBajar {
+  0% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -5px); }
+  100% { transform: translate(-50%, 0); }
+}
+
+@keyframes aparecerZoom {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
