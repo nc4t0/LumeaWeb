@@ -78,14 +78,33 @@ let contenedor = document.getElementById("productos")
 productos.forEach(producto => {
     contenedor.innerHTML += `
     <div class="card">
-      <img src="${producto.imagen}" alt="${producto.nombre}">
-      
-      <div class="card-body">
-        <h3>${producto.nombre}</h3>
-        <p>${producto.descripcion}</p>
-        <p class="precio">$${producto.precio}</p>
-        <button class="btn-agregar">Agregar</button>
-      </div>
+    <img src="${producto.imagen}" alt="${producto.nombre}">
+    
+    <div class="card-body">
+    <h3>${producto.nombre}</h3>
+    <p>${producto.descripcion}</p>
+    <p class="precio">$${producto.precio}</p>
+    <button class="btn-agregar">Agregar</button>
     </div>
-  `
+    </div>
+    `
+})
+
+let botones = document.querySelectorAll(".btn-agregar")
+
+botones.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    
+    let producto = productos[index]
+
+    agregarAlCarrito(producto)
+
+    btn.classList.add("added")
+    btn.textContent = "✔ Agregado"
+
+    setTimeout(() => {
+      btn.classList.remove("added")
+      btn.textContent = "Agregar"
+    }, 1200)
+  })
 })
