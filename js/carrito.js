@@ -150,6 +150,9 @@ if (hayError) {
   inputNombre.focus()
   return
 }
+
+const nombre = inputNombre.value.trim()
+const direccion = inputDireccion.value.trim()
     
 
   let mensaje = `Pedido web%0A%0A`

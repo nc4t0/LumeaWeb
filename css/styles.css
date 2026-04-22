@@ -290,6 +290,8 @@ body > * {
 /* ===================== */
 /* CARRITO */
 /* ===================== */
+
+
 #total {
   padding: 12px;
   margin-top: 10px;
@@ -307,6 +309,8 @@ body > * {
   font-weight: bold;
   color: #0e5026;
 }
+
+
 
 .error-msg {
   color: red;
