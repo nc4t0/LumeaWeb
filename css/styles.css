@@ -207,6 +207,21 @@ background: transparent;
 /* ===================== */
 /* TEXTOS Y BOTONES */
 /* ===================== */
+.btn-secundario {
+  width: 100%;
+  padding: 10px;
+
+  margin-top: 8px;
+
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  display: none; /* 👈 oculto por defecto */
+}
+
 .btn-agregar.added {
   background: #22c55e;
   color: white;
@@ -732,6 +747,10 @@ background: transparent;
   /* ===================== */
   /* BOTONES FLOAT */
   /* ===================== */
+
+.btn-secundario {
+    display: block; /* 👈 solo aparece en celular */
+  }
 
   .btn-carrito {
     width: 45px;

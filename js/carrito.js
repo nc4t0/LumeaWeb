@@ -148,6 +148,11 @@ function eliminarProducto(index) {
 actualizarContador()
 renderCarrito()
 
+document.getElementById("seguirComprando").addEventListener("click", () => {
+  cerrarCarritoUI()
+  document.getElementById("productos").scrollIntoView({ behavior: "smooth" })
+})
+
 // WSP //
 document.getElementById("enviarWhatsApp").addEventListener("click", () => {
 
