@@ -68,7 +68,7 @@ function renderCarrito() {
   if (carrito.length === 0) {
 contenedor.innerHTML = `
   <div class="carrito-vacio">
-    <h3>Tu carrito está vacío 🧼</h3>
+    <h3>Tu carrito está vacío 😔</h3>
     <p>Agregá productos para empezar tu pedido</p>
     <button onclick="cerrarCarritoUI()">Ver productos</button>
   </div>
@@ -150,6 +150,20 @@ renderCarrito()
 
 // WSP //
 document.getElementById("enviarWhatsApp").addEventListener("click", () => {
+
+  const errorCarrito = document.getElementById("error-carrito")
+
+errorCarrito.style.display = "none"
+
+   let totalItems = carrito.reduce((acc, p) => acc + p.cantidad, 0)
+
+if (totalItems === 0) {
+  errorCarrito.textContent = "Agregá al menos un producto para enviar el pedido 😕"
+  errorCarrito.style.display = "block"
+  return
+}
+
+
  const inputNombre = document.getElementById("nombre")
 const inputDireccion = document.getElementById("direccion")
 
