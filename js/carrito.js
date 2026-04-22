@@ -34,15 +34,22 @@ function agregarAlCarrito(producto) {
 const btnCarrito = document.querySelector(".btn-carrito")
 const panel = document.getElementById("carritoPanel")
 const cerrar = document.getElementById("cerrarCarrito")
+const overlay = document.getElementById("overlay")
 
 btnCarrito.addEventListener("click", () => {
   panel.classList.add("activo")
+  overlay.classList.add("activo")
 })
 
 cerrar.addEventListener("click", () => {
   panel.classList.remove("activo")
+  overlay.classList.remove("activo")
 })
 
+overlay.addEventListener("click", () => {
+  panel.classList.remove("activo")
+  overlay.classList.remove("activo")
+})
 // 🖼️ RENDER con imagen
 function renderCarrito() {
   const contenedor = document.getElementById("carritoItems")
@@ -63,18 +70,21 @@ function renderCarrito() {
 
         
         <div class="info">
-          <strong>${producto.nombre}</strong>
-          <p>$${producto.precio}</p>
-        </div>
-        <div class="controls">
-          <button onclick="disminuir(${index})">-</button>
-          <span>${producto.cantidad}</span>
-          <button onclick="aumentar(${index})">+</button>
-          <span>$${subtotal}</span>
-          <button onclick="eliminarProducto(${index})">❌</button>
-        </div>
+  <strong>${producto.nombre}</strong>
+  <p>$${producto.precio}</p>
 
-      </div>
+  <div class="controls">
+    <button onclick="disminuir(${index})">-</button>
+    <span>${producto.cantidad}</span>
+    <button onclick="aumentar(${index})">+</button>
+
+    <span class="subtotal">$${subtotal}</span>
+
+  <button class="btn-eliminar" onclick="eliminarProducto(${index})">
+  <i class="fa-solid fa-trash"></i>
+</button>
+  </div>
+</div>
     `
   })
 

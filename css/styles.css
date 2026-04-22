@@ -69,6 +69,21 @@ body > * {
   transform: scale(1.1);
 }
 
+.btn-eliminar {
+background: transparent;
+  border: none;
+
+  color: #ff4d4d;
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-eliminar:hover {
+  color: #ff0000;
+  transform: scale(1.05);
+}
 
 /* ===================== */
 /* BANNER */
@@ -370,7 +385,7 @@ body > * {
 
 .info strong {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
 
   white-space: nowrap;
   overflow: hidden;
@@ -386,7 +401,7 @@ body > * {
   top: 0;
   right: -480px;
 
- width: min(100vw, 480px);
+ width: min(90vw, 420px);
   height: 100%;
 
   background: white;
@@ -500,8 +515,30 @@ body > * {
 .controls {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  margin-top: 6px;
   flex-shrink: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.4);
+
+  opacity: 0;              /* 👈 invisible */
+  pointer-events: none;    /* 👈 no bloquea clicks */
+
+  transition: 0.3s;
+  z-index: 150;
+}
+
+.overlay.activo {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .controls button {
@@ -513,12 +550,12 @@ body > * {
 
   cursor: pointer;
 
-  background: #ddd;
+  background: #eee;
   transition: 0.2s;
 }
 
 .controls button:hover {
-  background: #bbb;
+  background: #ddd;
 }
 
 .controls span {
@@ -553,6 +590,13 @@ body > * {
   border-radius: 6px;
 
   cursor: pointer;
+}
+
+.subtotal {
+  font-size: 14px;
+  color: #0f0255;
+  margin-left: auto;
+  font-weight: bold;
 }
 /* ===================== */
 /* ANIMACIONES */
