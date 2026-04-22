@@ -50,6 +50,12 @@ overlay.addEventListener("click", () => {
   panel.classList.remove("activo")
   overlay.classList.remove("activo")
 })
+
+function cerrarCarritoUI() {
+  panel.classList.remove("activo")
+  overlay.classList.remove("activo")
+}
+
 // 🖼️ RENDER con imagen
 function renderCarrito() {
   const contenedor = document.getElementById("carritoItems")
@@ -58,6 +64,22 @@ function renderCarrito() {
   contenedor.innerHTML = ""
 
   let suma = 0
+
+  if (carrito.length === 0) {
+contenedor.innerHTML = `
+  <div class="carrito-vacio">
+    <h3>Tu carrito está vacío 🧼</h3>
+    <p>Agregá productos para empezar tu pedido</p>
+    <button onclick="cerrarCarritoUI()">Ver productos</button>
+  </div>
+`
+
+  total.innerHTML = "" // opcional: ocultar total si no hay nada
+  return
+}
+
+
+  let totalItems = carrito.reduce((acc, p) => acc + p.cantidad, 0)
 
   carrito.forEach((producto, index) => {
     let subtotal = producto.precio * producto.cantidad
@@ -88,7 +110,10 @@ function renderCarrito() {
     `
   })
 
-  total.innerHTML = `<strong>Total:</strong> <span>$${suma}</span>`
+  total.innerHTML = `
+  <strong>${totalItems} Articulo${totalItems !== 1 ? "s" : ""}</strong>
+  <span>$${suma}</span>
+`
 }
 
 // funciones //

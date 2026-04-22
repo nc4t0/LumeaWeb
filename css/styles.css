@@ -306,6 +306,21 @@ background: transparent;
 /* CARRITO */
 /* ===================== */
 
+.carrito-vacio {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.carrito-vacio h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.carrito-vacio p {
+  font-size: 14px;
+}
 
 #total {
   padding: 12px;
