@@ -61,11 +61,11 @@ function renderCarrito() {
 
         <img src="${producto.imagen || ''}" class="thumb">
 
+        
         <div class="info">
           <strong>${producto.nombre}</strong>
           <p>$${producto.precio}</p>
         </div>
-
         <div class="controls">
           <button onclick="disminuir(${index})">-</button>
           <span>${producto.cantidad}</span>
@@ -78,7 +78,7 @@ function renderCarrito() {
     `
   })
 
-  total.textContent = "Total: $" + suma
+  total.innerHTML = `<strong>Total:</strong> <span>$${suma}</span>`
 }
 
 // funciones //
@@ -115,13 +115,42 @@ renderCarrito()
 
 // WSP //
 document.getElementById("enviarWhatsApp").addEventListener("click", () => {
-  const nombre = document.getElementById("nombre").value
-  const direccion = document.getElementById("direccion").value
+ const inputNombre = document.getElementById("nombre")
+const inputDireccion = document.getElementById("direccion")
 
-  if (carrito.length === 0) {
-    alert("El carrito está vacío")
-    return
-  }
+const errorNombre = document.getElementById("error-nombre")
+const errorDireccion = document.getElementById("error-direccion")
+
+let hayError = false
+
+// resetear estados
+errorNombre.style.display = "none"
+errorDireccion.style.display = "none"
+
+inputNombre.classList.remove("input-error")
+inputDireccion.classList.remove("input-error")
+
+// validar nombre
+if (!inputNombre.value.trim()) {
+  errorNombre.textContent = "Completá tu nombre"
+  errorNombre.style.display = "block"
+  inputNombre.classList.add("input-error")
+  hayError = true
+}
+
+// validar dirección
+if (!inputDireccion.value.trim()) {
+  errorDireccion.textContent = "Completá tu dirección"
+  errorDireccion.style.display = "block"
+  inputDireccion.classList.add("input-error")
+  hayError = true
+}
+
+if (hayError) {
+  inputNombre.focus()
+  return
+}
+    
 
   let mensaje = `Pedido web%0A%0A`
   mensaje += `Nombre: ${nombre}%0A`

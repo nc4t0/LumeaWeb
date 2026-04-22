@@ -47,26 +47,27 @@
   <p>‎ ‎ © Lumea EyG - Productos de limpieza  </p>
 </footer>
 <div id="carritoPanel" class="carrito-panel">
-  <div class="checkout-form">
-  <h4>Tus datos</h4>
-
-  <input type="text" id="nombre" placeholder="Tu nombre">
-  <input type="text" id="direccion" placeholder="Tu dirección">
-
-  <button id="enviarWhatsApp">Enviar pedido</button>
-</div>
   <div class="carrito-header">
-    <h3>Tu carrito</h3>
     <button id="cerrarCarrito">✖</button>
   </div>
-
+  
   <div id="carritoItems" class="carrito-items">
     <!-- productos -->
   </div>
-
+  
   <div class="carrito-footer">
     <p id="total">Total: $0</p>
   </div>
+  <div class="checkout-form">
+  <h4>Tus datos</h4>
+
+<input type="text" id="nombre" placeholder="Tu nombre">
+<small class="error-msg" id="error-nombre"></small>
+
+<input type="text" id="direccion" placeholder="Tu dirección">
+<small class="error-msg" id="error-direccion"></small>
+  <button id="enviarWhatsApp">Enviar pedido</button>
+</div>
 </div>
 <script src="./js/productos.js"></script>
 <script src="./js/carrito.js"></script>
